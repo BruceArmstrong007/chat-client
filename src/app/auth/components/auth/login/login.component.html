@@ -1,0 +1,61 @@
+<div class="container">
+  <form
+    class="form mat-elevation-z4"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="header"><h1>Login</h1></div>
+    <mat-form-field color="accent" class="form-field" appearance="outline">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        type="text"
+        minlength="8"
+        maxlength="20"
+        formControlName="username"
+        required
+      />
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-hint>Username should be between 8 - 20 digits</mat-hint>
+    </mat-form-field>
+    <mat-form-field color="accent" class="form-field" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        minlength="8"
+        maxlength="50"
+        formControlName="password"
+        required
+      />
+      <mat-icon matSuffix (click)="hide = !hide">
+        {{ hide ? "visibility_off" : "visibility" }}
+      </mat-icon>
+      <mat-hint>Password should be between 8 - 50 digits</mat-hint>
+    </mat-form-field>
+    <p class="footer-text">
+      <a class="link" [routerLink]="'/auth/reset-password'">Forgot Password?</a>
+    </p>
+    <div class="footer">
+      <button color="accent" mat-raised-button type="reset" (click)="clear()">
+        Clear
+      </button>
+      <button
+        color="primary"
+        type="submit"
+        mat-raised-button
+        [disabled]="isSubmitting$ | async"
+      >
+        <mat-progress-spinner
+          class="center"
+          *ngIf="isSubmitting$ | async"
+          diameter="25"
+          mode="indeterminate"
+          color="accent"
+        >
+        </mat-progress-spinner>
+        <span *ngIf="!(isSubmitting$ | async)">Submit</span>
+      </button>
+    </div>
+  </form>
+</div>

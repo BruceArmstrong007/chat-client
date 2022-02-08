@@ -1,0 +1,19 @@
+<div class="container">
+  <mat-toolbar class="navbar mat-elevation-z4">
+    <a class="link" [routerLink]="'/'">
+      <i mat-icon-button class="icon">
+        <mat-icon class="nav-icon">chat</mat-icon>
+      </i>
+      Chat
+    </a>
+    <span class="spacer"></span>
+    <ng-container *ngFor="let route of navRoute">
+      <a class="link" [routerLink]="'/auth/' + route">
+        <span class="nav-text">{{ route | titlecase }}</span>
+      </a>
+    </ng-container>
+  </mat-toolbar>
+  <div class="routes">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container" *ngIf="userData$ | async as user">
+  <div class="grid-container" *ngIf="user[0]; else elseBlock">
+    <div class="list-grid">
+      <mat-card *ngFor="let user of userData$ | async">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>account_circle</mat-icon>
+          <mat-card-title class="overflow">{{ user }}</mat-card-title>
+          <mat-card-subtitle class="overflow">{{ user }}</mat-card-subtitle>
+        </mat-card-header>
+        <div align="end">
+          <button
+            class="btn"
+            (click)="accept(user)"
+            mat-raised-button
+            color="accent"
+          >
+            Accept
+          </button>
+          <button
+            class="btn"
+            (click)="undo(user)"
+            mat-stroked-button
+            color="warn"
+          >
+            Remove
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <h2 class="heading">No Friend Request Received</h2>
+  </ng-template>
+</div>

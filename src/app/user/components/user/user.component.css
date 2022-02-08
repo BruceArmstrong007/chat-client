@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+}
+
+.routes {
+  width: 100%;
+  height: calc(100% - 60px);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.nav-icon {
+  font-size: 18px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  margin: 0 5px;
+}
+
+.nav-text {
+  font-size: 15px;
+}
+
+.side-nav {
+  width: 20%;
+}
+.side-nav-content {
+  width: 80%;
+}
+
+.active {
+  background-color: #69f0ae;
+  color: black;
+}
+
+.items {
+  width: 100%;
+  text-align: center;
+}
+.description {
+  color: white;
+}
+.user-nav {
+  text-align: center;
+}
+.overflow {
+  text-overflow: ellipsis !important;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}

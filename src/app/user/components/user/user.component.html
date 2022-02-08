@@ -1,0 +1,91 @@
+<div class="container">
+  <mat-toolbar class="navbar mat-elevation-z4">
+    <a class="link">
+      <i mat-icon-button class="icon">
+        <mat-icon class="nav-icon">chat</mat-icon>
+      </i>
+      Chat
+    </a>
+    <span class="spacer"></span>
+
+    <button mat-raised-button color="accent" (click)="logout()">
+      <span class="nav-text"> Logout </span>
+    </button>
+  </mat-toolbar>
+  <mat-drawer-container class="routes">
+    <mat-drawer mode="side" class="side-nav" opened>
+      <div *ngIf="user$ | async as user">
+        <mat-accordion>
+          <mat-expansion-panel class="user-nav" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon">account_circle</mat-icon>
+              </mat-panel-title>
+              <mat-panel-description class="overflow">
+                {{ user.name }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <span class="user-text overflow">{{ user.username }}</span>
+            <mat-divider></mat-divider>
+            <span class="user-text overflow">ID : {{ user.id }}</span>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion>
+          <mat-expansion-panel class="user-nav" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon class="icon">group_add</mat-icon>
+              </mat-panel-title>
+              <mat-panel-description class="description overflow">
+                Friends
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-selection-list [multiple]="false">
+              <mat-list-option
+                [routerLink]="'chat'"
+                [routerLinkActive]="'active'"
+              >
+                <div class="items overflow">Chat</div>
+              </mat-list-option>
+              <mat-list-option
+                [routerLink]="'friend-list'"
+                [routerLinkActive]="'active'"
+              >
+                <div class="items overflow">Friends List</div>
+              </mat-list-option>
+              <mat-list-option
+                [routerLink]="'find-friend'"
+                [routerLinkActive]="'active'"
+              >
+                <div class="items overflow">Find Friends</div>
+              </mat-list-option>
+              <mat-list-option
+                [routerLink]="'request-sent'"
+                [routerLinkActive]="'active'"
+              >
+                <div class="items overflow">Sent Requests</div>
+              </mat-list-option>
+              <mat-list-option
+                [routerLink]="'request-received'"
+                [routerLinkActive]="'active'"
+                matBadgePosition="after"
+                [matBadge]="user.details.requestsRecieved.length"
+                matBadgeOverlap="true"
+                matBadgeSize="small"
+                [matBadgeHidden]="
+                  user.details.requestsRecieved.length > 0 ? hidden : true
+                "
+                (click)="hidden = true"
+              >
+                <div class="items overflow">Received Requests</div>
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content class="side-nav-content">
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

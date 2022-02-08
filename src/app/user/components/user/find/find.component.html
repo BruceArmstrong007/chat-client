@@ -1,0 +1,53 @@
+<div class="form">
+  <h1>Find Friend</h1>
+  <mat-form-field class="search" appearance="outline">
+    <mat-label>Username</mat-label>
+    <span matPrefix><mat-icon>search</mat-icon></span>
+    <span matSuffix
+      ><button (click)="find()" mat-mini-fab color="accent">
+        <mat-icon>search</mat-icon>
+      </button></span
+    >
+    <input
+      type="text"
+      matInput
+      [(ngModel)]="username"
+      minlength="8"
+      maxlength="20"
+    />
+    <mat-hint align="end">Username should be between 8 - 20 digits</mat-hint>
+  </mat-form-field>
+</div>
+<div class="user">
+  <div *ngIf="userData$ | async as user">
+    <div *ngIf="user[0]; else friend">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title class="overflow">{{ user[0]?.name }}</mat-card-title>
+          <mat-card-subtitle class="overflow">{{
+            user[0]?.userName
+          }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="content"
+          ><mat-icon class="icon">account_circle</mat-icon></mat-card-content
+        >
+        <mat-card-actions>
+          <button
+            (click)="add(user[0]?.userName)"
+            mat-raised-button
+            color="accent"
+          >
+            <mat-icon>add</mat-icon>Add
+          </button>
+          <button (click)="clear()" mat-stroked-button color="warn">
+            <mat-icon>clear</mat-icon>Clear
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <ng-template #friend>
+      <h2 class="heading">Search for your Friend's Username</h2>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container" *ngIf="userData$ | async as users">
+  <div class="grid-container" *ngIf="users[0]; else elseBlock">
+    <div class="list-grid">
+      <mat-card *ngFor="let user of users">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>account_circle</mat-icon>
+          <mat-card-title class="overflow">{{ user }}</mat-card-title>
+          <mat-card-subtitle class="overflow">{{ user }}</mat-card-subtitle>
+        </mat-card-header>
+        <div align="end">
+          <button (click)="remove(user)" mat-raised-button color="warn">
+            Remove
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <h2 class="heading">You don't have Friends</h2>
+  </ng-template>
+</div>

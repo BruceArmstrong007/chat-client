@@ -1,0 +1,37 @@
+.form {
+  color: white;
+  border-radius: 5px;
+  width: 400px;
+  padding: 10px;
+  border: 2px white solid;
+}
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  text-align: center;
+}
+.footer {
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.link {
+  text-decoration: none;
+  color: white;
+}
+.form-field {
+  width: 100%;
+}
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.footer-text {
+  padding: 5px 0px;
+  margin: 0;
+}

@@ -1,0 +1,74 @@
+<div class="container">
+  <mat-drawer-container class="routes">
+    <mat-drawer mode="side" class="side-nav" opened>
+      <mat-selection-list
+        [multiple]="false"
+        [(ngModel)]="userSelected"
+        (ngModelChange)="changeUser($event)"
+        *ngIf="userData$ | async as users; else elseBlock"
+      >
+        <mat-list-option
+          class="option"
+          [value]="user"
+          *ngFor="let user of users"
+        >
+          <div class="list-wrapper">
+            <mat-icon>account_circle</mat-icon>
+            <span class="overflow">{{ user }}</span>
+          </div>
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-drawer>
+    <mat-drawer-content class="side-nav-content">
+      <div
+        class="chat-box"
+        *ngIf="
+          userSelected != undefined && (userData$ | async) as users;
+          else elseBlockTwo
+        "
+      >
+        <div class="chat-content">
+          <div class="chat">
+            <div *ngIf="message$ | async as user">
+              <ng-container *ngFor="let chat of user[room]">
+                <div class="card-container">
+                  <mat-card
+                    class="card"
+                    [ngClass]="{ right: chat.user === username }"
+                  >
+                    <p class="card-header">
+                      <mat-icon>account_circle</mat-icon>
+                      <span class="overflow title">{{ chat.user }}</span>
+                    </p>
+                    <p class="overflow-msg">{{ chat.message }}</p>
+                  </mat-card>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <mat-form-field appearance="outline" class="text-field">
+            <mat-label>Say Something...</mat-label>
+            <input matInput type="text" [(ngModel)]="text" />
+            <mat-icon matPrefix>chat</mat-icon>
+            <button (click)="sendMessage()" mat-icon-button matSuffix>
+              <mat-icon color="accent">send</mat-icon>
+            </button>
+            <mat-hint>Chat with your Friend</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  <ng-template #elseBlock>
+    <div class="warning">
+      <h2 class="heading">No Friends to Chat</h2>
+    </div>
+  </ng-template>
+  <ng-template #elseBlockTwo>
+    <div class="warning">
+      <h2 class="heading">No Friends Selected to Chat</h2>
+    </div>
+  </ng-template>
+</div>
