@@ -1,0 +1,45 @@
+<div class="container">
+  <mat-toolbar class="navbar mat-elevation-z4">
+    <a class="link" [routerLink]="'/'">
+      <i mat-icon-button class="icon">
+        <mat-icon class="nav-icon">chat</mat-icon>
+      </i>
+      Chat
+    </a>
+    <span class="spacer"></span>
+    <ng-container *ngFor="let route of navRoute">
+      <a class="link" [routerLink]="'/auth/' + route">
+        <span class="nav-text">{{ route | titlecase }}</span>
+      </a>
+    </ng-container>
+  </mat-toolbar>
+  <div class="content" #content>
+    <div
+      class="msg-container"
+      #msg
+      [style.--left-side]="leftSide"
+      [style.--right-side]="leftSide"
+      [ngClass]="{ motionIn: motion === true, motionOut: motion === false }"
+    >
+      <div class="msg">
+        <span>- - - -</span>
+      </div>
+    </div>
+    <div class="left-section">
+      <h1><mat-icon class="nav-icon">chat</mat-icon>Chat</h1>
+      <h2>Connect with your Friends and Family</h2>
+    </div>
+    <div class="right-section">
+      <img class="chat-img" src="./assets/images/chat.png" />
+    </div>
+
+    <svg
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
+    </svg>
+  </div>
+</div>

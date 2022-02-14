@@ -1,0 +1,168 @@
+.msg-container {
+  --left-side: 0px;
+  --right-side: 0px;
+  left: var(--left-side);
+  right: var(--right-side);
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+}
+
+.msg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid #0032d4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #0032d4;
+  box-shadow: 0 0 50px #0032d4;
+}
+.msg ::after {
+  width: 0;
+  height: 0;
+  content: "";
+  position: absolute;
+  left: 3px;
+  bottom: -10px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #0032d4;
+}
+.motionIn {
+  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.motionOut {
+  -webkit-animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+@keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+}
+
+.content {
+  width: 100%;
+  height: calc(100% - 60px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.nav-icon {
+  font-size: 18px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  margin: 0 5px;
+}
+
+.nav-text {
+  font-size: 15px;
+}
+
+.left-section {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+.right-section {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-img {
+  min-width: 127px;
+  max-width: 527px;
+  height: auto;
+}
+
+.content svg {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  z-index: -2;
+  top: 0;
+}
+
+.content .shape-fill {
+  fill: #ffffff;
+}

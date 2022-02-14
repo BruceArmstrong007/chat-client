@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { CookieService } from 'ngx-cookie-service';
 import { Error404Component } from './shared/components/error404/error404.component';
+import { PageModule } from './landing-page/page.module';
 
 @NgModule({
   declarations: [AppComponent, Error404Component],
@@ -21,6 +22,7 @@ import { Error404Component } from './shared/components/error404/error404.compone
     AppRoutingModule,
     BrowserAnimationsModule,
     AuthModule,
+    PageModule,
     UserModule,
     HttpClientModule,
     StoreModule.forRoot({}),
