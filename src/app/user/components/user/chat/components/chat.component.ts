@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { PersistanceService } from 'src/app/shared/services/persistance.service';
 import { ChatService } from 'src/app/user/components/user/chat/services/chat.service';
@@ -26,6 +26,7 @@ export class ChatComponent implements OnInit {
   username: string = '';
   room: string = '';
   text: string = '';
+  chatObserver: any;
   token: string | null = null;
   userSelected: string | undefined;
   userData$: Observable<string[]> | undefined;
@@ -38,10 +39,15 @@ export class ChatComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.chatObserver = this.chatService
+      .getMessage()
+      .subscribe((data: ChatRequestInterface) => {
+        this.store.dispatch(pushAction({ data }));
+      });
     this.initializeValues();
-    this.chatService.getMessage().subscribe((data: ChatRequestInterface) => {
-      this.store.dispatch(pushAction({ data }));
-    });
+  }
+  ngOnDestroy() {
+    this.chatObserver.unsubscribe();
   }
 
   initializeValues() {

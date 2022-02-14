@@ -26,23 +26,6 @@ const chatReducer = createReducer(
       ...state,
     })
   ),
-  // on(
-  //   messageAction,
-  //   (state, action): ChatInterface => ({
-  //     ...state,
-  //     friends: {
-  //       ...state.friends,
-  //       [action.request.room]: [
-  //         ...state.friends[action.request.room],
-  //         {
-  //           id: action.request.id,
-  //           message: action.request.message,
-  //           user: action.request.user,
-  //         },
-  //       ],
-  //     },
-  //   })
-  // ),
   on(
     fetchChatSuccessAction,
     (state, action): ChatInterface => ({
