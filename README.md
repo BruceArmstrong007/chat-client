@@ -1,4 +1,8 @@
-# Hosted Link
+
+# chat-client
+Client Side of Chat Web App
+
+# Hosted Web App
 https://chat-ab2aa.web.app/
 
 # Tech Stack
