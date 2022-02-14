@@ -1,3 +1,18 @@
+##Hosted Link
+https://chat-ab2aa.web.app/page
+
+##Tech Stack
+Angular,
+Angular Material,
+NGRX,
+RxJs,
+Socket.IO
+
+
+##Deployment - CI/CD Integration
+GitHub - Firebase Integration
+
+
 # Chat
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
