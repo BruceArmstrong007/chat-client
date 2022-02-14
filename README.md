@@ -1,5 +1,5 @@
 # Hosted Link
-https://chat-ab2aa.web.app/page
+https://chat-ab2aa.web.app/
 
 # Tech Stack
 Angular,
