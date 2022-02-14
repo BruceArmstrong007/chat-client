@@ -1,7 +1,7 @@
-##Hosted Link
+# Hosted Link
 https://chat-ab2aa.web.app/page
 
-##Tech Stack
+# Tech Stack
 Angular,
 Angular Material,
 NGRX,
@@ -9,7 +9,7 @@ RxJs,
 Socket.IO
 
 
-##Deployment - CI/CD Integration
+# Deployment - CI/CD Integration
 GitHub - Firebase Integration
 
 
