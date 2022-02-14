@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:5000/',
-  socketUrl: 'http://localhost:5000/',
+  apiUrl: 'https://generated-dramatic-trout.glitch.me/',
+  socketUrl: 'https://generated-dramatic-trout.glitch.me/',
 };
