@@ -17,10 +17,19 @@ Angular Material,
 NGRX,
 RxJs,
 Socket.IO
+SQLlite3
 
 
 # Deployment - CI/CD Integration
 GitHub - Firebase Integration
+
+
+
+#Note 
+ Me trying to create a all round chat app with Auth and socket i.o on node server
+ sqllite3 is used in server itself for storing chats
+ Took around 2 to 4 days to build and deploy
+ Might not be as responsive
 
 
 # Chat
